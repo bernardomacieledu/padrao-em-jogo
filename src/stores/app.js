@@ -286,13 +286,13 @@ function resetarJogo() {
     return resposta === padraoEscolhido.value.correct
   }
 
-  function adicionarPonto() {
-    pontos.value++
-  }
+  //function adicionarPonto() {
+    //pontos.value++
+  //}
 
-  function resetarPontos() {
-    pontos.value = 0
-  }
+  //function resetarPontos() {
+    //pontos.value = 0
+  //}
 
   return {
   alternativasSorteadas,
@@ -302,7 +302,7 @@ function resetarJogo() {
   erros,
   totalRespondido,
   verificarAcerto,
-  adicionarPonto: adicionarAcerto,  
+  adicionarPonto: adicionarAcerto,
   adicionarErro,
   calcularDesempenho,
   resetarPontos: resetarJogo
