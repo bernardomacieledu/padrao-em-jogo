@@ -3,11 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', () => {
   const alternativasSorteadas = ref([])
-  //const quantidadeAlternativas = 4
   const padraoEscolhido = ref(null)
   const pontos = ref(0)
-
-  // Dados dos padrões
   const padroes = ref([
 {
       id: 1,
@@ -54,8 +51,6 @@ export const useAppStore = defineStore('app', () => {
       options: [12, 13, 14, 15],
       explanation: 'Sequência de números primos'
     },
-
-    // Padrões de Emojis Melhorados
     {
       id: 6,
       name: 'Cores do Arco-Íris',
@@ -137,8 +132,6 @@ export const useAppStore = defineStore('app', () => {
       options: ['🎷', '🎻', '🪕', '🎼'],
       explanation: 'Instrumentos musicais'
     },
-
-    // Padrões de Formas e Símbolos
     {
       id: 15,
       name: 'Formas Geométricas',
@@ -166,8 +159,6 @@ export const useAppStore = defineStore('app', () => {
       options: ['💯', '🎯', '✨', '💎'],
       explanation: 'Símbolos populares/positivos'
     },
-
-    // Padrões Alfabéticos
     {
       id: 18,
       name: 'Alfabeto Pares',
@@ -195,8 +186,6 @@ export const useAppStore = defineStore('app', () => {
       options: ['H', 'G', 'J', 'K'],
       explanation: 'Consoantes em ordem'
     },
-
-    // Padrões Complexos
     {
       id: 21,
       name: 'Padrão Misto',
@@ -247,7 +236,6 @@ export const useAppStore = defineStore('app', () => {
   const erros = ref(0)
 const totalRespondido = ref(0)
 
-// Adicione estas funções no store
 function adicionarErro() {
   erros.value++
   totalRespondido.value++
@@ -271,28 +259,17 @@ function resetarJogo() {
 
 
   function sortearPadroes() {
-    // Embaralha os padrões
     const padroesEmbaralhados = [...padroes.value].sort(() => Math.random() - 0.5)
 
-    // Seleciona um padrão aleatório
     const padraoIndex = Math.floor(Math.random() * padroesEmbaralhados.length)
     padraoEscolhido.value = { ...padroesEmbaralhados[padraoIndex] }
 
-    // Embaralha as opções mantendo a estrutura original
     alternativasSorteadas.value = [...padraoEscolhido.value.options].sort(() => Math.random() - 0.5)
   }
 
   function verificarAcerto(resposta) {
     return resposta === padraoEscolhido.value.correct
   }
-
-  //function adicionarPonto() {
-    //pontos.value++
-  //}
-
-  //function resetarPontos() {
-    //pontos.value = 0
-  //}
 
   return {
   alternativasSorteadas,

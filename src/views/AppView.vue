@@ -10,7 +10,7 @@ appStore.resetarPontos();
 
 function segundo() {
   segundos++;
-  if (segundos == 60) { // Voltei para 60 segundos
+  if (segundos == 60) {
     clearInterval(intervalo)
     router.push('/end')
   }
@@ -19,7 +19,7 @@ function segundo() {
 
 function verificarAcerto(resposta) {
   if (appStore.verificarAcerto(resposta)) {
-    appStore.adicionarPonto(); // Agora chama adicionarAcerto
+    appStore.adicionarPonto(); 
   } else {
     appStore.adicionarErro();
   }
